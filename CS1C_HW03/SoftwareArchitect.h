@@ -9,7 +9,8 @@ using namespace std;
 class Software : public Employee
 {
     public:
-
+    // Public functions of the class, can be used by including this 
+    // class within the program.
         //--------------------------------
         // === Constructors/Destructors ============================
         //--------------------------------
@@ -35,11 +36,15 @@ class Software : public Employee
         void print();
 
     private:
+    // Private data members: accessed by the class' public functions
         int depNum;
         string supervisor;
         double percentSal;
         int years;
-        Employee ob;
+        Employee ob;    // Employee object used as a private data member so 
+                        // we can use the setEmployee function in order to 
+                        // set Employee values to the Software Architect object's 
+                        // data members.
 };
 
 #endif

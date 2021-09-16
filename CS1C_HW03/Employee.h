@@ -9,6 +9,8 @@ using namespace std;
 class Employee
 {
     public:
+    // Public functions of the class, can be used by including this 
+    // class within the program.
         //--------------------------------
         // === Constructors/Destructors ============================
         //--------------------------------
@@ -37,6 +39,7 @@ class Employee
         void print();
     
     protected:
+    // Protected data members: accessed by the class' public functions and derived classes. 
         string name;
         string title; 
         string phone;
@@ -44,7 +47,11 @@ class Employee
         char gender;
         int ID;
         int age;
-        Date hireDate;
+        Date hireDate;  // Date object used as a protected data member so 
+                        // we can use the setDate function in order to 
+                        // set the month, day, and year values to the objects
+                        // that require a date (i.e. hire date.) 
+                        
 };
 
 #endif 

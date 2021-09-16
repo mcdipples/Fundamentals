@@ -7,6 +7,8 @@ using namespace std;
 class Date
 {
     public:
+    // Public functions of the class, can be used by including this 
+    // class within the program. 
         //--------------------------------
         // === Constructors/Destructors ============================
         //--------------------------------
@@ -27,9 +29,10 @@ class Date
         void printDate();
    
     private:
+    // Private data members: accessed by the class' public functions
      int month;
      int day; 
-        int year; 
+     int year; 
 
 };
 

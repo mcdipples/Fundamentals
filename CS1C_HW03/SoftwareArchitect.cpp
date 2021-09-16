@@ -36,6 +36,13 @@ Software::~Software(){} // destructor
 *_______________________________________________________________________________________
 ****************************************************************************************/
 
+/****************************************************************************************
+* void Software::setSoftware:
+* _______________________________________________________________________________________
+* Pull values passed as arguments from main and assign them to the object's data members 
+* _______________________________________________________________________________________
+* 
+****************************************************************************************/
 void Software::setSoftware(int depNum, string supervisor, double percentSal, int years)
 {
     this->depNum = depNum;
@@ -44,30 +51,72 @@ void Software::setSoftware(int depNum, string supervisor, double percentSal, int
     this->years = years;
 }
 //--------------------------------
-
+/****************************************************************************************
+* void Software::setTotal:
+* _______________________________________________________________________________________
+* Pull values passed as arguments from main and assign them to the object's data members.
+* Uses the setEmployee function from the Employee class to set values that are part of 
+* the Employee class into a Software object's data members. 
+* _______________________________________________________________________________________
+* Data members used from Employee class: name, ID, phone, age, gender, title, salary,
+* month, day, year
+****************************************************************************************/
 void Software::setTotal(string name, int ID, string phone, int age, char gender, string title, string salary, int month, int day, int year)
 {
     ob.setEmployee(name, ID, phone, age, gender, title, salary, month, day, year);
 }
+//--------------------------------
 
+/****************************************************************************************
+* void Software::setDepNum:
+* _______________________________________________________________________________________
+* Pull int depNum value passed as an argument from main and assigns it to the object's 
+* depNum data member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
 void Software::setDepNum(int depNum)
 {
     this->depNum = depNum;
 }
 //--------------------------------
 
+/****************************************************************************************
+* void Programmer::setSupervisor:
+* _______________________________________________________________________________________
+* Pull string supervisor value passed as an argument from main and assigns it to the object's 
+* supervisor data member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
 void Software::setSupervisor(string supervisor)
 {
     this->supervisor = supervisor;
 }
 //--------------------------------
 
+/****************************************************************************************
+* void Programmer::setRaise:
+* _______________________________________________________________________________________
+* Pull double percentSal value passed as an argument from main and assigns it to the object's 
+* percentSal data member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
 void Software::setPercentSal(double percentSal)
 {
     this->percentSal = percentSal;
 }
 //--------------------------------
 
+/****************************************************************************************
+* void Programmer::setRaise:
+* _______________________________________________________________________________________
+* Pull int years value passed as an argument from main and assigns it to the object's 
+* years data member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
 void Software::setYears(int years)
 {
     this->years = years;
