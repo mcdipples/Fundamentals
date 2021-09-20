@@ -1,41 +1,32 @@
-#include "Employee.h"
+#include "Programmer.h"
 
 // === Default constructor =============================
-Employee::Employee()
+Programmer::Programmer()
 {
-    name = "";
-    title = "";
-    phone = "";
-    ID = 0;
-    age = 0;
-    salary = "";
-    hireDate.setDate(0,0,0);
+    depNum = 0;
+    supervisor = "";
+    percentSal = 0.00;
+    cpp = "";
+    java = "";
 }
-
 //--------------------------------
 // === Overloaded constructor ==========================
 // Values passed as arguments from main() are assigned to an object's data members
 //--------------------------------
-Employee::Employee(string name, int ID, string phone, int age, char gender, string title, string salary, int month, int day, int year)
+Programmer::Programmer(int depNum, string supervisor, string name, int ID, string phone, int age, char gender, string title, string salary, int month, int day, int year, double percentSal, string cpp, string java)
 {
-    this->name = name;
-    this->ID = ID;
-    this->phone = phone;
-    this->age = age;
-    this->gender = gender;
-    this->title = title; 
-    this->salary = salary;
-    this->hireDate.setDate(month, day, year);
+    ob.setEmployee(name, ID, phone, age, gender, title, salary, month, day, year);
+    this->depNum = depNum;
+    this->supervisor = supervisor;
+    this->percentSal = percentSal;
+    this->cpp = cpp;
+    this->java = java;
 }
 //--------------------------------
 // === Destructor ======================================
 //--------------------------------
-Employee::~Employee(){}
+Programmer::~Programmer(){}
 //--------------------------------
-
-
-
-
 
 /***************************************************************************************
 *
@@ -48,135 +39,105 @@ Employee::~Employee(){}
 ****************************************************************************************/
 
 /****************************************************************************************
-* void Employee::setEmployee:
+* void Programmer::setProgrammer:
 * _______________________________________________________________________________________
 * Pull values passed as arguments from main and assign them to the object's data members 
 * _______________________________________________________________________________________
 * 
 ****************************************************************************************/
-void Employee::setEmployee(string name, int ID, string phone, int age, char gender, string title, string salary, int month, int day, int year)
+void Programmer::setProgrammer(int depNum, string supervisor, double percentSal, string cpp, string java)
 {
-    this->name = name;
-    this->ID = ID;
-    this->phone = phone;
-    this->age = age;
-    this->gender = gender;
-    this->title = title; 
-    this->salary = salary;
-    this->hireDate.setDate(month, day, year);
+    this->depNum = depNum;
+    this->supervisor = supervisor;
+    this->percentSal = percentSal;
+    this->cpp = cpp;
+    this->java = java;
 }
 //--------------------------------
 
 /****************************************************************************************
-* void Employee::setName:
-* _______________________________________________________________________________________
-* Pull string name value passed as an argument from main and assigns it to the object's 
-* name data member 
-* _______________________________________________________________________________________
-*
-****************************************************************************************/
-void Employee::setName(string name)
-{
-    this->name = name;
-}
-//--------------------------------
-
-/****************************************************************************************
-* void Employee::setID:
-* _______________________________________________________________________________________
-* Pull int ID value passed as an argument from main and assigns it to the object's 
-* ID data member 
-* _______________________________________________________________________________________
-*
-****************************************************************************************/
-void Employee::setID(int ID)
-{
-    this->ID = ID;
-}
-//--------------------------------
-
-/****************************************************************************************
-* void Employee::setPhone:
-* _______________________________________________________________________________________
-* Pull string phone value passed as an argument from main and assigns it to the object's 
-* phone data member 
-* _______________________________________________________________________________________
-*
-****************************************************************************************/
-void Employee::setPhone(string phone)
-{
-    this->phone = phone;
-}
-//--------------------------------
-
-/****************************************************************************************
-* void Employee::setAge:
-* _______________________________________________________________________________________
-* Pull int age value passed as an argument from main and assigns it to the object's 
-* phone data member 
-* _______________________________________________________________________________________
-*
-****************************************************************************************/
-void Employee::setAge(int age)
-{
-    this->age = age;
-}
-//--------------------------------
-
-/****************************************************************************************
-* void Employee::setGender:
-* _______________________________________________________________________________________
-* Pull char gender value passed as an argument from main and assigns it to the object's 
-* gender data member 
-* _______________________________________________________________________________________
-*
-****************************************************************************************/
-void Employee::setGender(char gender)
-{
-        this->gender = gender;
-}
-//--------------------------------
-
-/****************************************************************************************
-* void Employee::setTitle:
-* _______________________________________________________________________________________
-* Pull string title value passed as an argument from main and assigns it to the object's 
-* title data member 
-* _______________________________________________________________________________________
-*
-****************************************************************************************/
-void Employee::setTitle(string title)
-{
-        this->title = title; 
-}
-//--------------------------------
-
-/****************************************************************************************
-* void Employee::setSalary:
-* _______________________________________________________________________________________
-* Pull string salary value passed as an argument from main and assigns it to the object's 
-* salary data member 
-* _______________________________________________________________________________________
-*
-****************************************************************************************/
-void Employee::setSalary(string salary)
-{
-        this->salary = salary;
-}
-//--------------------------------
-
-/****************************************************************************************
-* void Employee::setHireDate:
+* void Programmer::setTotal:
 * _______________________________________________________________________________________
 * Pull values passed as arguments from main and assign them to the object's data members.
-* Uses the setHireDate function from the Date class to set values that are part of 
-* the Date class into an Employee object's data members. 
+* Uses the setEmployee function from the Employee class to set values that are part of 
+* the Employee class into a Programmer object's data members. 
 * _______________________________________________________________________________________
-* Data members used from Data class: int month, int day, int year
+* Data members used from Employee class: name, ID, phone, age, gender, title, salary,
+* month, day, year
 ****************************************************************************************/
-void Employee::setHireDate(int month, int day, int year)
+void Programmer::setTotal(string name, int ID, string phone, int age, char gender, string title, string salary, int month, int day, int year)
 {
-    this->hireDate.setDate(month, day, year);
+    ob.setEmployee(name, ID, phone, age, gender, title, salary, month, day, year);
+}
+//--------------------------------
+
+/****************************************************************************************
+* void Programmer::setDepNum:
+* _______________________________________________________________________________________
+* Pull int depNum value passed as an argument from main and assigns it to the object's 
+* depNum data member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
+void Programmer::setDepNum(int depNum)
+{
+    this->depNum = depNum;
+}
+//--------------------------------
+
+/****************************************************************************************
+* void Programmer::setSupervisor:
+* _______________________________________________________________________________________
+* Pull string supervisor value passed as an argument from main and assigns it to the object's 
+* supervisor data member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
+void Programmer::setSupervisor(string supervisor)
+{
+    this->supervisor = supervisor;
+}
+//--------------------------------
+
+/****************************************************************************************
+* void Programmer::setRaise:
+* _______________________________________________________________________________________
+* Pull double percentSal value passed as an argument from main and assigns it to the object's 
+* percentSal data member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
+void Programmer::setRaise(double percentSal)
+{
+    this->percentSal = percentSal;
+}
+//--------------------------------
+
+/****************************************************************************************
+* void Programmer::setCpp:
+* _______________________________________________________________________________________
+* Pull string cpp value passed as an argument from main and assigns it to the object's 
+* cpp data member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
+void Programmer::setCpp(string cpp)
+{
+    this->cpp = cpp;
+}
+//--------------------------------
+
+/****************************************************************************************
+* void Programmer::setCpp:
+* _______________________________________________________________________________________
+* Pull string java value passed as an argument from main and assigns it to the object's 
+* cpp java member 
+* _______________________________________________________________________________________
+*
+****************************************************************************************/
+void Programmer::setJava(string java)
+{
+    this->java = java;
 }
 //--------------------------------
 
@@ -187,17 +148,14 @@ void Employee::setHireDate(int month, int day, int year)
 *_______________________________________________________________________________________
 ****************************************************************************************/
 
-void Employee::print()
+void Programmer::print()
 {
-    cout << "===============================\n"
-         << "Employee :   " << name << endl
-         << "ID       :   " << ID << endl
-         << "Phone #  :   " << phone << endl
-         << "Gender   :   " << gender << endl
-         << "Title    :   " << title << endl
-         << "Salary   :   " << salary << endl
-         << "Hire Date:   "; 
-         hireDate.printDate();
-    cout << "\n===============================\n";
-
+    ob.print();
+    cout << "Department :   " << depNum << endl
+         << "Supervisor :   " << supervisor << endl
+         << "Raise %    :   " << percentSal << endl
+         << "C++        :   " << cpp << endl
+         << "Java       :   " << java << endl
+         << "===============================\n";
 }
+//--------------------------------

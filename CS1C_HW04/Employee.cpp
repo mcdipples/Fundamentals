@@ -33,6 +33,103 @@ Employee::Employee(string name, int ID, string phone, int age, char gender, stri
 Employee::~Employee(){}
 //--------------------------------
 
+/****************************************************************************************
+* bool operator ==:
+* _______________________________________________________________________________________
+* Operator overload "==" so that we can compare the phone numbers of two Employee
+* class objects. 
+* True = phone numbers are the same
+* False = phone numbers are different
+* _______________________________________________________________________________________
+* Used by phoneComp 
+****************************************************************************************/
+bool Employee::operator == (const Employee& Employee1) const
+{
+    return this->phone == Employee1.phone;
+}
+
+bool phoneComp(const Employee& employee1, const Employee& employee2)
+{
+    return employee1.phone == employee2.phone;
+}
+
+/****************************************************************************************
+* Employee& operator + :
+* _______________________________________________________________________________________
+* Operator overload "+" so that we can add an integer to the age of an Employee object.  
+****************************************************************************************/
+Employee& Employee::operator += (const int& add)
+{
+    this->age += add;
+    return *this;
+}
+
+/****************************************************************************************
+* friend ostream& operator << :
+* _______________________________________________________________________________________
+* Operator overload "<<" so that we can print an Employee object to the console.  
+****************************************************************************************/
+ostream& operator << (ostream& os, const Employee& Employee2)
+{
+    os << "===============================\n"
+         << "Employee :   " << Employee2.name << endl
+         << "ID       :   " << Employee2.ID << endl
+         << "Age      :   " << Employee2.age << endl
+         << "Phone #  :   " << Employee2.phone << endl
+         << "Gender   :   " << Employee2.gender << endl
+         << "Title    :   " << Employee2.title << endl
+         << "Salary   :   " << Employee2.salary << endl
+         << "Hire Date:   "; 
+    os << Employee2.hireDate;        // Need to overload ostream operator in Date as well so we can print hireDate data. 
+    os << "\n===============================\n";
+
+    return os;
+}
+
+/****************************************************************************************
+* friend istream& operator >> :
+* _______________________________________________________________________________________
+* Operator overload ">>" so that we can input Employee object data values from the 
+* console itself.  
+****************************************************************************************/
+istream& operator >> (istream& is, Employee& Employee2)
+{
+//============================================================
+// variables that make up an Employee object. These will be passed to the Employee object  
+    string name;
+    int ID;
+    string phone;
+    int age;
+    char gender;
+    string title;
+    string salary;
+    int month;
+    int day;
+    int year;
+//============================================================
+// Inputting the values to be passed to the class object. 
+    getline(is,name);
+    is >> ID; 
+    is.ignore(10000, '\n');
+    getline(is, phone);
+    is >> age;
+    is.ignore(10000, '\n');
+    is.get(gender);
+    is.ignore(10000, '\n');
+    getline(is, title);
+    getline(is, salary);
+    is >> month;
+    is >> day;
+    is >> year;
+
+//============================================================
+// Set these values we just inputted into the Employee object
+
+    Employee2.setEmployee(name, ID, phone, age, gender, title, salary, month, day, year);
+
+    return is;
+} 
+
 
 
 
@@ -192,6 +289,7 @@ void Employee::print()
     cout << "===============================\n"
          << "Employee :   " << name << endl
          << "ID       :   " << ID << endl
+         << "Age      :   " << age << endl
          << "Phone #  :   " << phone << endl
          << "Gender   :   " << gender << endl
          << "Title    :   " << title << endl
