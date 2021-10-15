@@ -125,7 +125,7 @@ double* dynamic_allocation_array_doubles(int array_size)
     // do stuff here with pi_array
     double* pd_array = new double[array_size];
     // ...    // dynamic memory allocated for pi_array not needed any longer, free it
-    delete[] pd_array;
+    delete[] pi_array;
 
     return pd_array;
 }
@@ -279,7 +279,7 @@ int main()
     //for (double* p = 0; p < 10, p++) cout << // ...  << '\n';
     for (int i = 0; i < 10; i++)
     {
-        cout << *p << '/n';         // since p has already been incrememnted, we're starting from the end of the array
+        cout << *p << endl;         // since p has already been incrememnted, we're starting from the end of the array
         p--;
     }
     cout << endl;
