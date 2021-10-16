@@ -21,12 +21,12 @@ class Rectangle : public Shape
 
     public:
 
-    Rectangle(double width, double length);
-    ~Rectangle(){}
+    Rectangle(double width, double length);         // constructor
+    ~Rectangle(){}                                  // destructor
 
-    virtual double calcArea();
+    virtual double calcArea();                      // calcArea virtual function
 
-    virtual double calcPerimeter();
+    virtual double calcPerimeter();                 // calcPerimeter virtual function
 
 };
 

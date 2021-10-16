@@ -9,8 +9,8 @@
 * DUE DATE   : 10/15/2021
 *****************************************************************************************
 PROGRAM: Abstract base class Shape that will be used to derive shapes such as Rectangle
-and Triangle from. Includes two virtual functions that will be use to make calculations 
-of the data members of each shape depending on which type it is. 
+and Triangle from. Includes two virtual functions that will be use to make calculations
+of the data members of each shape depending on which type it is.
 ****************************************************************************************/
 #include <iostream>
 #include <iomanip>
@@ -21,35 +21,17 @@ using namespace std;
 class Shape
 {
 
-    public:
+public:
 
-        // default constructor
-        Shape(){}
-        // Destructor 
-        ~Shape(){} 
-        // Virtual function used to calculate the perimeter of a shape
-        virtual double calcPerimeter() = 0;
-        // Virtual function used to calculate the area of a shape 
-        virtual double calcArea() = 0;
-
-       // private:
-
-       // double perimeter;
-       // double area;
+    // default constructor
+    Shape() {}
+    // Destructor 
+    ~Shape() {}
+    // Virtual function used to calculate the perimeter of a shape
+    virtual double calcPerimeter() = 0;
+    // Virtual function used to calculate the area of a shape 
+    virtual double calcArea() = 0;
 };
-
-    // ==== Nonmember functions ================================
-    // Prints the perimeter of the object
-    void printPerimeter(Shape &obj)
-    {
-        cout << "Area of the shape is: " << obj.calcPerimeter() << endl;
-    }
-    
-    // Prints the area of the object 
-    void printArea(Shape &obj)
-    {
-        cout << "Perimeter of the shape is: " << obj.calcArea() << endl;
-    }
 
 
 #endif
